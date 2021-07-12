@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: servegolang
+  labels:
+    app: servegolang
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "servegolang"
+  template:
+    metadata:
+      labels:
+        app: "servegolang"
+    spec:
+      containers:
+        - name: "servegolang"
+          image: "fabiobraga/go-hello:0.0.2"
